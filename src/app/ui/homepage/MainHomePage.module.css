@@ -1,0 +1,4 @@
+.main {
+  width: var(--max-width);
+  height: 100vh;
+}

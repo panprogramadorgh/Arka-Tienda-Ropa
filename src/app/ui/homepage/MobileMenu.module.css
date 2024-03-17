@@ -1,0 +1,30 @@
+.main {
+  height: 100vh;
+  width: var(--max-width);
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: var(--font-size);
+}
+.option-list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  list-style: none;
+}
+.option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+.option .arrow {
+  width: 22px;
+  height: 22px;
+}
+
+.option a {
+  display: block;
+  color: inherit;
+  font-size: inherit;
+}

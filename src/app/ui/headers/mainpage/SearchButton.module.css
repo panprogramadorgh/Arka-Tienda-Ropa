@@ -1,0 +1,22 @@
+.button {
+  cursor: text;
+  width: calc(var(--max-width) * 0.3 - 60px);
+  min-width: 150px;
+  padding-bottom: 3px;
+  font-size: var(--font-size);
+  text-align: end;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: rgb(var(--foreground-rgb));
+  border-bottom: var(--border-width) solid rgb(var(--foreground-rgb));
+}
+.button.mobile {
+  margin: 20px 0;
+}
+.button.align-start {
+  text-align: start;
+}
+.button.long {
+  width: calc(var(--max-width) * 0.5);
+}
