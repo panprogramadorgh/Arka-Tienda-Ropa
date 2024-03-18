@@ -6,18 +6,18 @@ import { FC, useContext } from "react";
 // components
 import Link from "next/link";
 import Image from "next/image";
-import SearchButton from "@/app/ui/headers/mainpage/SearchButton";
+import SearchButton from "@/app/ui/components/MainHeader/SearchButton/SearchButton";
 
 // libs
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomePage"; // home page context
-import arrowRight from "@/app/ui/icons/mainmobile/arrowRight.svg";
+import arrowRight from "@/app/ui/icons/arrowRight.svg";
 
 // types & interfaces
 
 // css
-import styles from "@/app/ui/homepage/MobileMenu.module.css";
+import styles from "@/app/ui/components/HomeMain/MobileDropdown/MobileDropdown.module.css";
 
 interface Props {}
 

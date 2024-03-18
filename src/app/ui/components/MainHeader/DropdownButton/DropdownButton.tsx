@@ -15,11 +15,11 @@ import { HomePageContext } from "@/app/ui/contexts/HomePage";
 // types & interfaces
 
 // css
-import styles from "@/app/ui/headers/mainpage/Dropdown.module.css";
+import styles from "@/app/ui/components/MainHeader/DropdownButton/DropdownButton.module.css";
 
 interface Props {}
 
-const Dropdown: FC<Props> = ({}) => {
+const DropdownButton: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
   const handleClick: MouseEventHandler = useCallback(() => {
     if (homePageState != null) {
@@ -43,4 +43,4 @@ const Dropdown: FC<Props> = ({}) => {
   );
 };
 
-export default Dropdown;
+export default DropdownButton;

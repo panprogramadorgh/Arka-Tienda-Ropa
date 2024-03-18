@@ -9,12 +9,12 @@ import Link from "next/link";
 // libs
 
 // utils
-import caladea from "../../fonts/caladea";
+import caladea from "../../../fonts/caladea";
 
 // types & interfaces
 
 // css
-import styles from "@/app/ui/headers/mainpage/Logo.module.css";
+import styles from "@/app/ui/components/MainHeader/Logo/Logo.module.css";
 
 interface Props {}
 

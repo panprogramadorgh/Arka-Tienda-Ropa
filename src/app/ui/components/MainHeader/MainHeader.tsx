@@ -8,21 +8,21 @@ import { FC, useContext } from "react";
 // components
 import Link from "next/link";
 import Image from "next/image";
-import SearchButton from "@/app/ui/headers/mainpage/SearchButton";
-import Logo from "@/app/ui/headers/mainpage/Logo";
-import Dropdown from "@/app/ui/headers/mainpage/Dropdown";
+import SearchButton from "@/app/ui/components/MainHeader/SearchButton/SearchButton";
+import Logo from "@/app/ui/components/MainHeader/Logo/Logo";
+import DropdownButton from "@/app/ui/components/MainHeader/DropdownButton/DropdownButton";
 
 // libs
 
 // utils
-import personIcon from "@/app/ui/icons/mainheader/person.svg";
-import cartIcon from "@/app/ui/icons/mainheader/cart.svg";
+import personIcon from "@/app/ui/icons/person.svg";
+import cartIcon from "@/app/ui/icons/cart.svg";
 import { HomePageContext } from "@/app/ui/contexts/HomePage"; // home page context
 
 // types & interfaces
 
 // css
-import styles from "@/app/ui/headers/mainpage/MainHeader.module.css";
+import styles from "@/app/ui/components/MainHeader/MainHeader.module.css";
 
 interface Props {}
 
@@ -45,7 +45,7 @@ const Header: FC<Props> = ({}) => {
       </ul>
       {/* mobile */}
       <div className={styles["header-mobile-container"]}>
-        <Dropdown />
+        <DropdownButton />
         <Logo />
       </div>
       {/*  */}

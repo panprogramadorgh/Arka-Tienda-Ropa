@@ -4,8 +4,8 @@
 import { FC } from "react";
 
 // components
-import MainHeader from "@/app/ui/headers/mainpage/MainHeader";
-import MainHomePage from "@/app/ui/homepage/MainHomePage";
+import MainHeader from "@/app/ui/components/MainHeader/MainHeader";
+import HomeMain from "@/app/ui/components/HomeMain/HomeMain";
 
 // libs
 
@@ -15,7 +15,7 @@ import HomePageProvider from "@/app/ui/contexts/HomePage"; // home page context 
 // types & interfaces
 
 // css
-// import styles from "@/app/page.module.css";
+import styles from "@/app/page.module.css";
 
 interface Props {}
 
@@ -23,7 +23,7 @@ const Home: FC<Props> = ({}) => {
   return (
     <HomePageProvider>
       <MainHeader />
-      <MainHomePage />
+      <HomeMain /> {/* main element of page */}
     </HomePageProvider>
   );
 };

@@ -12,7 +12,7 @@ import { FC } from "react";
 // types & interfaces
 
 // css
-import styles from "@/app/ui/headers/mainpage/SearchButton.module.css";
+import styles from "@/app/ui/components/MainHeader/SearchButton/SearchButton.module.css";
 
 interface Props {
   mobileMenu?: boolean;

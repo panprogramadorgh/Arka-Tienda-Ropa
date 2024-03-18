@@ -6,7 +6,7 @@
 import { FC, useContext } from "react";
 
 // components
-import MobileMenu from "@/app/ui/homepage/MobileMenu";
+import MobileMenu from "@/app/ui/components/HomeMain/MobileDropdown/MobileDropdown";
 
 // libs
 
@@ -17,7 +17,7 @@ import useCloseMobileMenuOnResize from "@/app/ui/hooks/useCloseMobileMenuOnResiz
 // types & interfaces
 
 // css
-import styles from "@/app/ui/homepage/MainHomePage.module.css";
+import styles from "@/app/ui/components/HomeMain/HomeMain.module.css";
 
 interface Props {}
 
