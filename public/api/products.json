@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "title": "Producto 1",
+    "description": "Description product 1",
+    "price": 100,
+    "materials": ["Algodon", "Poliester"],
+    "sizes": ["S", "M", "L"],
+    "productPath": "/products/product1",
+    "imgPath": "/imgs/imagen1.jpg"
+  },
+  {
+    "id": 1,
+    "title": "Producto 2",
+    "description": "Description product 2",
+    "price": 125,
+    "materials": ["Algodon", "Poliester"],
+    "sizes": ["S", "M", "L"],
+    "productPath": "/products/product2",
+    "imgPath": "/imgs/imagen2.jpg"
+  }
+]

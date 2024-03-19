@@ -1,0 +1,45 @@
+.presentation {
+  height: min(70%, 550px);
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+.slogan {
+  flex-grow: 3;
+  flex-basis: 80vw;
+  font-size: 1.2rem;
+  padding-right: 50px;
+}
+.slogan hr {
+  outline: calc(var(--border-width) / 2) solid rgb(var(--foreground-rgb));
+  border: none;
+  width: 70%;
+  height: 0;
+}
+.slogan p {
+  margin-top: 25px;
+}
+
+.image-section {
+  user-select: none;
+  flex-grow: 1;
+  height: 100%;
+  perspective: 1000px;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.image-section:hover {
+  transform: rotateX(15deg) rotateY(15deg);
+}
+
+.image-section > p {
+  text-align: center;
+  padding: 10px 0;
+}
+.image-section > div {
+  display: flex;
+  justify-content: flex-end;
+}
+.image-section > div > img {
+  border-radius: var(--border-radius);
+  box-shadow: 10px 10px 25px #0002;
+}

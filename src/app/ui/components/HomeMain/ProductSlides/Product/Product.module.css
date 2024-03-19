@@ -1,0 +1,17 @@
+.product {
+  width: 100%;
+  height: min(50vh, 500px);
+  display: flex;
+  /* outline: var(--border-width) solid rgb(var(--foreground-rgb));
+  border-radius: var(--border-radius); */
+}
+.info {
+  flex-grow: 1;
+}
+.image {
+  flex-grow: 1;
+}
+.image img {
+  width: 60%;
+  height: 100%;
+}

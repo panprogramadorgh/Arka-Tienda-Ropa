@@ -1,7 +1,7 @@
 import { useContext, Context, useEffect, useState } from "react";
 import type { HomePageState } from "../contexts/HomePage";
 
-export function useCloseMobileMenuOnResize(
+export function useCloseMobileDropdownOnResize(
   HomePageContext: Context<HomePageState | null>
 ): void {
   const [windowWidth, setWindowWidth] = useState<number>(0);
@@ -43,4 +43,4 @@ export function useCloseMobileMenuOnResize(
   }, [windowWidth]);
 }
 
-export default useCloseMobileMenuOnResize;
+export default useCloseMobileDropdownOnResize;

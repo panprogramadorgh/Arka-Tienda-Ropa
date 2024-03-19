@@ -1,5 +1,5 @@
 .main {
-  height: 100vh;
+  height: 70%;
   width: var(--max-width);
   display: flex;
   flex-flow: column nowrap;

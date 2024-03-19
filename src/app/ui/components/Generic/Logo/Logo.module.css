@@ -1,9 +1,13 @@
 .logo {
   user-select: none;
   font-weight: 1000;
-  font-size: 2.3rem;
+  font-size: 3.2rem;
   color: rgb(var(--foreground-rgb));
 }
 .logo:hover {
   text-decoration: none;
+}
+.logo.big {
+  user-select: auto;
+  font-size: 5rem;
 }

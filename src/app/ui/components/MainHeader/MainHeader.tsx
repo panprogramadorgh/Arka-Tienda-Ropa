@@ -9,7 +9,7 @@ import { FC, useContext } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import SearchButton from "@/app/ui/components/MainHeader/SearchButton/SearchButton";
-import Logo from "@/app/ui/components/MainHeader/Logo/Logo";
+import Logo from "@/app/ui/components/Generic/Logo/Logo";
 import DropdownButton from "@/app/ui/components/MainHeader/DropdownButton/DropdownButton";
 
 // libs
