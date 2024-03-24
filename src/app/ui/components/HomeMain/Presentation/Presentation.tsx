@@ -1,15 +1,17 @@
 /* Imports */
 
 // react & nextjs
-import { FC } from "react";
+import { FC, Suspense } from "react";
 
 // components
 import Logo from "@/app/ui/components/Generic/Logo/Logo";
-import Image from "next/image";
+import Review from "@/app/ui/components/HomeMain/Presentation/Review/Review";
+import ImageSlides from "@/app/ui/components/HomeMain/Presentation/ImageSlides/ImageSlides";
 
 // libs
 
 // utils
+import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
 
 // types & interfaces
 
@@ -19,6 +21,8 @@ import styles from "@/app/ui/components/HomeMain/Presentation/Presentation.modul
 interface Props {}
 
 const Presentation: FC<Props> = ({}) => {
+  const windowSize = useGetWindowSize();
+
   return (
     <div className={styles.presentation}>
       <section className={styles.slogan}>
@@ -29,12 +33,12 @@ const Presentation: FC<Props> = ({}) => {
           cuidadosamente diseñadas para realzar tu belleza única y reflejar tu
           personalidad vibrante.
         </p>
+        {windowSize && windowSize.width > 950 && <Review />}
       </section>
-      <section className={styles["image-section"]}>
-        <div>
-          <Image src="/imgs/imagen2.jpg" width={390} height={500} alt="" />
-        </div>
-        <p>Camisa random de color blanco</p>
+      <section className={styles["slides-section"]}>
+        <Suspense fallback={<p>hola mundo ...</p>}>
+          {windowSize && <ImageSlides windowSize={windowSize} />}
+        </Suspense>
       </section>
     </div>
   );
@@ -42,6 +46,7 @@ const Presentation: FC<Props> = ({}) => {
 
 export default Presentation;
 
-// TODO: Sistema de cambio de imagen
 // TODO: Sistema de actualizacion de comentario
 // TODO: Crear comentario de reseña
+// TODO: Limpiar todos los use cliente que no sean necesarios
+// TODO: Arreglar suspense del componente ImageSliades

@@ -1,0 +1,30 @@
+.slide-container {
+  display: flex;
+  justify-content: space-evenly;
+  perspective: 1000px;
+}
+
+.slide-container img {
+  border-radius: var(--border-radius);
+  box-shadow: 10px 10px 25px var(--box-shadow);
+}
+.slide-footer-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+.slide-footer {
+  display: inline;
+  user-select: none;
+}
+
+@media only screen and (max-width: 950px) {
+  .slide-container {
+    justify-content: left;
+    padding-top: 50px;
+  }
+  .slide-container img {
+    width: 273px;
+    height: 350px;
+  }
+}

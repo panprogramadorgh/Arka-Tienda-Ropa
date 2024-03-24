@@ -13,7 +13,7 @@ import Presentation from "@/app/ui/components/HomeMain/Presentation/Presentation
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomePage"; // home page context
-import useCloseMobileDropdownOnResize from "@/app/ui/hooks/useCloseMobileDropdownOnResize";
+import useCloseMobileDropdownOnResize from "@/app/ui/hooks/HomeMainPage/useCloseMobileDropdownOnResize";
 
 // types & interfaces
 

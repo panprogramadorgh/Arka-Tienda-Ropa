@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "title": "Producto 1",
+    "title": "Pantalones baqueros elassticos",
     "description": "Description product 1",
     "price": 100,
     "materials": ["Algodon", "Poliester"],
@@ -11,7 +11,7 @@
   },
   {
     "id": 1,
-    "title": "Producto 2",
+    "title": "Camisa blanca de algodon",
     "description": "Description product 2",
     "price": 125,
     "materials": ["Algodon", "Poliester"],

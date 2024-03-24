@@ -9,6 +9,11 @@ export interface Product {
   imgPath: string;
 }
 
+export interface ImageSlideProduct {
+  title: Product["title"];
+  imgPath: Product["imgPath"];
+}
+
 export interface FetchError {
   message: string;
 }

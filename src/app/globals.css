@@ -12,6 +12,9 @@
   --border-width: 2px;
   --border-rgb: 20, 20, 20;
 
+  --box-shadow: #0002;
+  --box-shadow-heavy: #0006;
+
   --scrollbar-thumb-rgb: 50, 50, 50;
   --scrollbar-track-rgb: 0, 0, 0, 0;
 

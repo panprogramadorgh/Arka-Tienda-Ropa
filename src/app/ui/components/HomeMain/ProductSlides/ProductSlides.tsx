@@ -78,6 +78,4 @@ const ProductSlides: FC<Props> = ({}) => {
 
 export default ProductSlides;
 
-// TODO: Introducir en HomeMain despues de `Presentation`
-// TODO: Encapsular logica en hook para facilitar lectura
-// TODO: Crear sistema con estado para seleccionar un producto concreto
+// TODO: Determinar que hacer con este componente
