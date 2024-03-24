@@ -1,3 +1,27 @@
 .review {
-  user-select: auto !important;
+  user-select: auto;
+  width: 100%;
+  padding: 17px;
+  margin-top: 15px;
+  background-color: rgb(245, 245, 245);
+  border-radius: var(--border-radius);
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0;
+}
+.review p {
+  margin: 0;
+  padding: 0;
+}
+
+.stars-container {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+.stars-container img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }

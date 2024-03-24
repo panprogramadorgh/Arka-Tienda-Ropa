@@ -71,8 +71,8 @@ const ImageSlides: FC<Props> = ({ windowSize }) => {
         <Image
           priority
           src={currentSlide.imgPath}
-          width={390}
-          height={500}
+          width={378}
+          height={450}
           alt={currentSlide.title}
           onClick={handleImageTab}
         />
