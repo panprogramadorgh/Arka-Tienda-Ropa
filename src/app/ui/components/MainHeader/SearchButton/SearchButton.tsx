@@ -15,19 +15,19 @@ import { FC } from "react";
 import styles from "@/app/ui/components/MainHeader/SearchButton/SearchButton.module.css";
 
 interface Props {
-  mobileMenu?: boolean;
+  mobileDropdown?: boolean;
   placeholderAlignStart?: boolean;
   long?: boolean;
 }
 
 const SearchButton: FC<Props> = ({
-  mobileMenu,
+  mobileDropdown,
   placeholderAlignStart,
   long,
 }) => {
   return (
     <button
-      className={`${styles.button} ${mobileMenu ? styles.mobile : ""} ${
+      className={`${styles.button} ${mobileDropdown ? styles.mobile : ""} ${
         placeholderAlignStart ? styles["align-start"] : ""
       } ${long ? styles.long : ""}`.trim()}
     >

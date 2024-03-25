@@ -11,10 +11,10 @@ import MobileDropdown from "@/app/ui/components/HomeMain/MobileDropdown/MobileDr
 import ImageSlides from "@/app/ui/components/HomeMain/ImageSlides/ImageSlides";
 
 // libs
+import { motion, AnimatePresence } from "framer-motion";
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomeMain"; // home page context
-import useDisableScrolling from "@/app/ui/hooks/HomeMainPage/useDisableScrolling";
 
 // types & interfaces
 
@@ -25,13 +25,14 @@ interface Props {}
 
 const MainHomePage: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
-  // useDisableScrolling(); // removes scrolling when modal is open
 
   return (
     <main className={styles.main}>
-      {homePageState != null && homePageState[0].showMobileMenu === true && (
-        <MobileDropdown />
-      )}
+      <AnimatePresence>
+        {homePageState != null && homePageState[0].showMobileMenu && (
+          <MobileDropdown />
+        )}
+      </AnimatePresence>
       <ImageSlides />
     </main>
   );

@@ -1,18 +1,21 @@
 /* Imports */
 
 // react & nextjs
-import { FC, useContext } from "react";
+import { FC, useContext, useEffect } from "react";
 
 // components
 import Link from "next/link";
-import Image from "next/image";
 import SearchButton from "@/app/ui/components/MainHeader/SearchButton/SearchButton";
+import DropdownButton from "@/app/ui/components/MainHeader/DropdownButton/DropdownButton";
 
 // libs
+import { motion } from "framer-motion";
+import { useMedia } from "use-media";
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomeMain"; // home page context
-import arrowRight from "@/app/ui/icons/arrowRight.svg";
+import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
+import { dropIn, dropInMobile } from "@/utils/MobileDropdownAnimations";
 
 // types & interfaces
 
@@ -20,29 +23,36 @@ import arrowRight from "@/app/ui/icons/arrowRight.svg";
 import styles from "@/app/ui/components/HomeMain/MobileDropdown/MobileDropdown.module.css";
 
 interface Props {}
-
-const MobileMenu: FC<Props> = ({}) => {
+const MobileDropdown: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
+  const windowSize = useGetWindowSize();
+
+  // Mientras que el tamaño de la ventana no se sepa entonces no se renderiza el modal
+  if (windowSize === null) return;
   return (
-    <div className={styles.container}>
-      <SearchButton mobileMenu placeholderAlignStart long />
+    <motion.div
+      className={styles.container}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={windowSize.width > 950 ? dropIn : dropInMobile}
+    >
+      <div className={styles["dropdown-button-container"]}>
+        <DropdownButton />
+      </div>
+      <SearchButton mobileDropdown placeholderAlignStart long />
       <ul className={styles["option-list"]}>
         {homePageState &&
           homePageState[0].navLinks.map(({ title, path }) => {
             return (
               <li className={styles.option} key={path}>
-                <Image
-                  className={styles.arrow}
-                  src={arrowRight}
-                  alt="arrow right"
-                />
                 <Link href={path}>{title}</Link>
               </li>
             );
           })}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 
-export default MobileMenu;
+export default MobileDropdown;

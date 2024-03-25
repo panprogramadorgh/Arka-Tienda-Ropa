@@ -10,9 +10,9 @@
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: var(--border-width);
   background-color: #000;
-  transition: transform 0.3s ease; /* Añadimos transición */
+  transition: all 0.3s ease; /* Añadimos transición */
 }
 
 .container:before {
@@ -37,4 +37,5 @@
 
 .container.close:after {
   transform: rotate(24deg);
+  height: var(--border-width);
 }

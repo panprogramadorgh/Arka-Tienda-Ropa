@@ -1,11 +1,16 @@
 .container {
+  --width: 500px;
+
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-  height: 300px;
+  top: 180px;
+  left: 7vw;
+  width: var(--width);
+  height: 500px;
+
+  padding: 25px;
+
   background-color: rgb(var(--background-start-rgb));
+  outline: var(--border-width) solid rgb(var(--foreground-rgb));
 
   display: flex;
   flex-flow: column nowrap;
@@ -33,4 +38,32 @@
   display: block;
   color: inherit;
   font-size: inherit;
+}
+
+.dropdown-button-container {
+  display: none;
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    --width: 100vw;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--width);
+    height: 100vh;
+
+    transform: translate(0, 0);
+
+    padding: 25px;
+
+    background-color: rgb(var(--background-start-rgb));
+    outline: var(--border-width) solid rgb(var(--foreground-rgb));
+  }
+  .dropdown-button-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
 }

@@ -23,7 +23,7 @@ const Home: FC<Props> = ({}) => {
   return (
     <HomePageProvider>
       <MainHeader />
-      <HomeMain /> {/* main element of page */}
+      <HomeMain />
     </HomePageProvider>
   );
 };

@@ -26,7 +26,8 @@ const ImageSlides: FC<Props> = ({}) => {
       <article className={styles.page}>
         <div className={styles["image-container"]}>
           <Image
-            src="/imgs/background/image2.jpg"
+            priority
+            src="/imgs/background/compressed/image2.jpg"
             alt="model 1"
             width={windowSize.width / 2}
             height={windowSize.height}
@@ -34,7 +35,8 @@ const ImageSlides: FC<Props> = ({}) => {
         </div>
         <div className={styles["image-container"]}>
           <Image
-            src="/imgs/background/image5.jpg"
+            priority
+            src="/imgs/background/compressed/image5.jpg"
             alt="model 2"
             width={windowSize.width / 2}
             height={windowSize.height}
@@ -44,7 +46,8 @@ const ImageSlides: FC<Props> = ({}) => {
       <article className={styles.page}>
         <div className={styles["image-container"]}>
           <Image
-            src="/imgs/background/image4.jpg"
+            priority
+            src="/imgs/background/compressed/image4.jpg"
             alt="model 1"
             width={windowSize.width / 2}
             height={windowSize.height}
@@ -52,7 +55,8 @@ const ImageSlides: FC<Props> = ({}) => {
         </div>
         <div className={styles["image-container"]}>
           <Image
-            src="/imgs/background/image6.jpg"
+            priority
+            src="/imgs/background/compressed/image6.jpg"
             alt="model 2"
             width={windowSize.width / 2}
             height={windowSize.height}

@@ -2,11 +2,13 @@
   --max-width: 80vw;
 
   --border-radius: 12px;
-  --border-width: 2px;
+  --border-width: 1px;
   --border-rgb: 20, 20, 20;
 
-  /* --foreground-rgb: 40, 40, 40; */
-  --foreground-rgb: 15, 15, 15;
+  --background-nav-hex: #fffa;
+
+  --foreground-rgb: 5, 5, 5;
+  --foreground-hover-rgb: 70, 70, 70;
   --background-start-rgb: 230, 230, 232;
   --background-end-rgb: 255, 255, 255;
   --background-card-rgb: 240, 240, 240;
@@ -26,16 +28,6 @@
 ::-webkit-scrollbar {
   display: none;
 }
-/* ::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background-color: rgb(var(--scrollbar-track-rgb));
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgb(var(--scrollbar-thumb-rgb));
-  border-radius: var(--border-radius);
-} */
 
 * {
   box-sizing: border-box;
@@ -46,6 +38,7 @@
 html,
 body {
   max-width: 100vw;
+  font-weight: 100;
 }
 
 body {
@@ -66,7 +59,8 @@ body {
 a {
   color: rgb(var(--link-foreground-rgb));
   text-decoration: none;
+  transition: color 0.2s;
 }
 a:hover {
-  text-decoration: underline;
+  color: rgb(var(--foreground-hover-rgb));
 }
