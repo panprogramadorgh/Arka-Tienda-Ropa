@@ -6,14 +6,15 @@
 import { FC, useContext } from "react";
 
 // components
-import MobileMenu from "@/app/ui/components/HomeMain/MobileDropdown/MobileDropdown";
-import Presentation from "@/app/ui/components/HomeMain/Presentation/Presentation";
+import MobileDropdown from "@/app/ui/components/HomeMain/MobileDropdown/MobileDropdown";
+// import Presentation from "@/app/ui/components/HomeMain/Presentation/Presentation";
+import ImageSlides from "@/app/ui/components/HomeMain/ImageSlides/ImageSlides";
 
 // libs
 
 // utils
-import { HomePageContext } from "@/app/ui/contexts/HomePage"; // home page context
-import useCloseMobileDropdownOnResize from "@/app/ui/hooks/HomeMainPage/useCloseMobileDropdownOnResize";
+import { HomePageContext } from "@/app/ui/contexts/HomeMain"; // home page context
+import useDisableScrolling from "@/app/ui/hooks/HomeMainPage/useDisableScrolling";
 
 // types & interfaces
 
@@ -24,14 +25,14 @@ interface Props {}
 
 const MainHomePage: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
-  useCloseMobileDropdownOnResize(HomePageContext); // closes the mobile menu when window.innerWidth is to long
+  // useDisableScrolling(); // removes scrolling when modal is open
 
-  if (homePageState != null && homePageState[0].showMobileMenu === true) {
-    return <MobileMenu />;
-  }
   return (
     <main className={styles.main}>
-      <Presentation />
+      {homePageState != null && homePageState[0].showMobileMenu === true && (
+        <MobileDropdown />
+      )}
+      <ImageSlides />
     </main>
   );
 };

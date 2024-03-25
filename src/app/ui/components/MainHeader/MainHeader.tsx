@@ -3,7 +3,7 @@
 /* Imports */
 
 // react & nextjs
-import { FC, useContext } from "react";
+import { FC } from "react";
 
 // components
 import Link from "next/link";
@@ -17,7 +17,8 @@ import DropdownButton from "@/app/ui/components/MainHeader/DropdownButton/Dropdo
 // utils
 import personIcon from "@/app/ui/icons/person.svg";
 import cartIcon from "@/app/ui/icons/cart.svg";
-import { HomePageContext } from "@/app/ui/contexts/HomePage"; // home page context
+
+import useGetYScrollPos from "@/app/ui/hooks/Generic/useGetYScrollPos";
 
 // types & interfaces
 
@@ -25,30 +26,20 @@ import { HomePageContext } from "@/app/ui/contexts/HomePage"; // home page conte
 import styles from "@/app/ui/components/MainHeader/MainHeader.module.css";
 
 interface Props {}
-
 const Header: FC<Props> = ({}) => {
-  const homePageState = useContext(HomePageContext);
+  const scrollPos = useGetYScrollPos();
+  const checkScroll = () => scrollPos && scrollPos > 0;
+
   return (
-    <header className={styles["header"]}>
-      <ul className={styles["header-nav"]}>
-        <li className={styles.logo}>
-          <Logo />
-        </li>
-        {homePageState &&
-          homePageState[0].navLinks.map(({ title, path }) => {
-            return (
-              <li className={styles.option} key={path}>
-                <Link href={path}>{title}</Link>
-              </li>
-            );
-          })}
-      </ul>
-      {/* mobile */}
-      <div className={styles["header-mobile-container"]}>
+    <header
+      className={`${styles["header"]} ${
+        checkScroll() ? styles.blur : ""
+      }`.trim()}
+    >
+      <div className={styles["header-nav"]}>
         <DropdownButton />
         <Logo />
       </div>
-      {/*  */}
       <div className={styles["header-container"]}>
         <div className={styles["searchbutton-container"]}>
           <SearchButton />

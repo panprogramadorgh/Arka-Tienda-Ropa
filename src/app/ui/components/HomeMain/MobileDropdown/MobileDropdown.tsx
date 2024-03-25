@@ -11,7 +11,7 @@ import SearchButton from "@/app/ui/components/MainHeader/SearchButton/SearchButt
 // libs
 
 // utils
-import { HomePageContext } from "@/app/ui/contexts/HomePage"; // home page context
+import { HomePageContext } from "@/app/ui/contexts/HomeMain"; // home page context
 import arrowRight from "@/app/ui/icons/arrowRight.svg";
 
 // types & interfaces
@@ -24,7 +24,7 @@ interface Props {}
 const MobileMenu: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
   return (
-    <main className={styles.main}>
+    <div className={styles.container}>
       <SearchButton mobileMenu placeholderAlignStart long />
       <ul className={styles["option-list"]}>
         {homePageState &&
@@ -41,7 +41,7 @@ const MobileMenu: FC<Props> = ({}) => {
             );
           })}
       </ul>
-    </main>
+    </div>
   );
 };
 

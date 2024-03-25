@@ -46,7 +46,5 @@ const Presentation: FC<Props> = ({}) => {
 
 export default Presentation;
 
-// TODO: Sistema de actualizacion de comentario
-// TODO: Crear comentario de reseña
 // TODO: Limpiar todos los use cliente que no sean necesarios
-// TODO: Arreglar suspense del componente ImageSliades
+// TODO: Adaptar codigo al nuevo paradigma

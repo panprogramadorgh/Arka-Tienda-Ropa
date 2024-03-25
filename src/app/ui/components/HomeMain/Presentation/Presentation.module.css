@@ -9,7 +9,7 @@
   max-width: 60%;
   height: 100%;
   flex-grow: 3;
-  font-size: 1.2rem;
+  font-size: var(--font-size);
   padding-right: 50px;
 }
 .slogan hr {
@@ -18,7 +18,7 @@
   width: 70%;
   height: 0;
 }
-.slogan p {
+.slogan > p {
   margin-top: 25px;
 }
 
@@ -35,7 +35,7 @@
   .slogan {
     max-width: 100%;
     flex-basis: 0;
-    font-size: 1rem;
+    font-size: var(--font-size-small);
   }
   .slides-section {
     display: flex;

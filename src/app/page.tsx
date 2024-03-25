@@ -10,7 +10,7 @@ import HomeMain from "@/app/ui/components/HomeMain/HomeMain";
 // libs
 
 // utils
-import HomePageProvider from "@/app/ui/contexts/HomePage"; // home page context provider
+import HomePageProvider from "@/app/ui/contexts/HomeMain"; // home page context provider
 
 // types & interfaces
 

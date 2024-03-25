@@ -1,0 +1,19 @@
+.page {
+  display: flex;
+  justify-content: space-between;
+}
+.image-container {
+  height: 100vh;
+}
+.image-container img {
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 950px) {
+  .page .image-container:last-child {
+    display: none;
+  }
+  .image-container img {
+    width: 100vw;
+  }
+}

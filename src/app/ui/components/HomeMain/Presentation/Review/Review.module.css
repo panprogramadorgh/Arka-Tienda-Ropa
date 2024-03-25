@@ -3,19 +3,26 @@
   width: 100%;
   padding: 17px;
   margin-top: 15px;
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(var(--background-card-rgb));
   border-radius: var(--border-radius);
 
   display: flex;
   flex-flow: column nowrap;
   gap: 0;
 }
-.review p {
+.review .name,
+.review .review {
+  display: inline-block;
   margin: 0;
   padding: 0;
 }
+.review .review {
+  font-size: var(--font-size-small);
+  margin-top: 7px;
+}
 
 .stars-container {
+  margin-top: 15px;
   width: 150px;
   display: flex;
   justify-content: space-between;
@@ -24,4 +31,5 @@
   width: 25px;
   height: 25px;
   cursor: pointer;
+  user-select: none;
 }

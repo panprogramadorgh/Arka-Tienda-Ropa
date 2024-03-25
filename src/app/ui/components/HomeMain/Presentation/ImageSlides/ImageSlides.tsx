@@ -31,7 +31,7 @@ const ImageSlides: FC<Props> = ({ windowSize }) => {
   const products = useFetchProducts();
   const [currentSlide, _] = useSwitchSlide({
     products,
-    switchInterval: 5000,
+    switchInterval: 10000,
   });
 
   const handleImageTab: MouseEventHandler<HTMLImageElement> = () => {

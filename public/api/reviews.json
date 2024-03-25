@@ -1,8 +1,14 @@
 [
   {
     "id": 0,
-    "name": "Alfredo",
-    "review": "Hola buenas",
+    "name": "Cliente",
+    "review": "Me he encantado el producto, es de muy buena calidad. Ademas el envio fue muy rapido.",
     "stars": 4
+  },
+  {
+    "id": 1,
+    "name": "Cliente",
+    "review": "¡ Excelente producto ! Totalmente recomendable",
+    "stars": 5
   }
 ]

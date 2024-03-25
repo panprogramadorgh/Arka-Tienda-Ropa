@@ -7,7 +7,7 @@
     "materials": ["Algodon", "Poliester"],
     "sizes": ["S", "M", "L"],
     "productPath": "/products/product1",
-    "imgPath": "/imgs/imagen1.jpg"
+    "imgPath": "/imgs/products/imagen1.jpg"
   },
   {
     "id": 1,
@@ -17,6 +17,6 @@
     "materials": ["Algodon", "Poliester"],
     "sizes": ["S", "M", "L"],
     "productPath": "/products/product2",
-    "imgPath": "/imgs/imagen2.jpg"
+    "imgPath": "/imgs/products/imagen2.jpg"
   }
 ]

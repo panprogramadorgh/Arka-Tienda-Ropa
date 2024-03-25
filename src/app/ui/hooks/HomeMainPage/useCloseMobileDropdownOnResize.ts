@@ -1,6 +1,6 @@
 import { useEffect, Context, useContext } from "react";
 import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
-import type { HomePageState } from "@/app/ui/contexts/HomePage";
+import type { HomePageState } from "@/app/ui/contexts/HomeMain";
 
 function useCloseMobileDropdownOnResize(
   HomePageContext: Context<HomePageState | null>

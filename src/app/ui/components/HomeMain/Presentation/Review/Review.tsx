@@ -11,7 +11,7 @@ import Image from "next/image";
 // utils
 import starOutline from "@/app/ui/icons/starOutline.svg";
 import star from "@/app/ui/icons/star.svg";
-import useFetchReviews from "@/app/ui/hooks/HomeMainPage/Presentation/Review/useFetchReviews";
+import useFetchReviews from "@/app/ui/hooks/Generic/useFetchReviews";
 
 // types & interfaces
 
@@ -25,8 +25,8 @@ const Review: FC<Props> = ({}) => {
   if (reviews === null) return null;
   return (
     <div className={styles.review}>
-      <p>{reviews[0].name}</p>
-      <p>{reviews[0].review}</p>
+      <p className={styles.name}>{reviews[0].name}</p>
+      <p className={styles.review}>{reviews[0].review}</p>
       <div className={styles["stars-container"]}>
         {new Array(reviews[0].stars).fill(null).map(() => {
           return <Image src={star} alt="review star" />;

@@ -2,15 +2,16 @@
   --max-width: 80vw;
 
   --border-radius: 12px;
-
-  --foreground-rgb: 40, 40, 40;
-  --background-start-rgb: 230, 230, 232;
-  --background-end-rgb: 255, 255, 255;
-
-  --link-foreground-rgb: 19, 132, 237;
-
   --border-width: 2px;
   --border-rgb: 20, 20, 20;
+
+  /* --foreground-rgb: 40, 40, 40; */
+  --foreground-rgb: 15, 15, 15;
+  --background-start-rgb: 230, 230, 232;
+  --background-end-rgb: 255, 255, 255;
+  --background-card-rgb: 240, 240, 240;
+
+  --link-foreground-rgb: 19, 132, 237;
 
   --box-shadow: #0002;
   --box-shadow-heavy: #0006;
@@ -18,10 +19,14 @@
   --scrollbar-thumb-rgb: 50, 50, 50;
   --scrollbar-track-rgb: 0, 0, 0, 0;
 
-  --font-size: 1.08rem;
+  --font-size: 1.1rem;
   --font-size-mobile: 0.97rem;
+  --font-size-small: 1rem;
 }
 ::-webkit-scrollbar {
+  display: none;
+}
+/* ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
@@ -30,7 +35,7 @@
 ::-webkit-scrollbar-thumb {
   background-color: rgb(var(--scrollbar-thumb-rgb));
   border-radius: var(--border-radius);
-}
+} */
 
 * {
   box-sizing: border-box;

@@ -10,7 +10,7 @@ import { FC, useContext, useCallback, MouseEventHandler } from "react";
 // libs
 
 // utils
-import { HomePageContext } from "@/app/ui/contexts/HomePage";
+import { HomePageContext } from "@/app/ui/contexts/HomeMain";
 
 // types & interfaces
 
