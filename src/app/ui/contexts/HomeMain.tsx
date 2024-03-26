@@ -17,6 +17,7 @@ import {
 // libs
 
 // utils
+import navLinks from "@/utils/homeMainContextNavLinks";
 
 // types & interfaces
 
@@ -44,20 +45,7 @@ export const HomePageContext = createContext<HomePageContextStateI | null>(
 const HomePageContextProvider: FC<Props> = ({ children }) => {
   const homePageState: HomePageContextStateI = useState<HomePageContextDataI>({
     showMobileMenu: false,
-    navLinks: [
-      {
-        title: "Coleccion",
-        path: "/coleccion",
-      },
-      {
-        title: "Accesorios",
-        path: "/accesorios",
-      },
-      {
-        title: "Outfits",
-        path: "/outfits",
-      },
-    ],
+    navLinks,
   });
   return (
     <HomePageContext.Provider value={homePageState}>

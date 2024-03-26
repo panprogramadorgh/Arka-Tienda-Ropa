@@ -1,6 +1,6 @@
 .page {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .image-container {
   height: 100vh;

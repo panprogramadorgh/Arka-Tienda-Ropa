@@ -1,17 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Arka
 
-## Getting Started
+## Proyecto Tienda de Ropa
 
-First, run the development server:
+### Iniciar el proyecto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Para iniciar el proyeceto en primer lugar ejecute `npm i`, esto instalara las dependencias del proyecto. Ejecute `npm run dev` para levantar el servidor de desarrollo.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El servidor estara activo en el puerto 3000 de su maquina. Puede acceder con `localhost:3000`
+
+### Tareas por hacer
+
+1. Solucionar advertencia relacionada con el componente Logo ❌
+2. Solucionar problema entre imagenes en dispositivos moviles ❌
+3. Cerrar modal cuando se hace scroll en la pagina ❌
+4. Cerrar modal cuando se hace click sobre una imagen ❌
+5. Agregar pie de pagina ❌
+6. Implementar SVGs con plugin de webpack para mas flexibilidad ❌
+7. Efecto hover en los botones de cesta y perfil ❌

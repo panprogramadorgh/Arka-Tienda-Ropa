@@ -1,0 +1,127 @@
+.container {
+  --width: 500px;
+
+  position: fixed;
+  top: 180px;
+  left: 7vw;
+  width: var(--width);
+  height: 600px;
+
+  padding: 30px;
+  padding-bottom: 20px;
+
+  background-color: rgb(var(--background-start-rgb));
+  outline: var(--border-width) solid rgb(var(--foreground-rgb));
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  font-size: var(--font-size);
+}
+
+.container > p {
+  font-size: var(--font-size-title);
+  padding-bottom: 25px;
+}
+
+.search-button-container {
+  padding-bottom: 30px;
+}
+
+.option-list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  list-style: none;
+}
+.option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.option a {
+  display: block;
+}
+
+.option-column {
+  display: none;
+}
+
+.dropdown-button-container {
+  display: none;
+}
+
+@media only screen and (max-height: 820px) {
+  .container {
+    height: 450px;
+    top: 135px;
+    font-size: var(--font-size-small);
+  }
+  .container > p,
+  .container .search-button-container {
+    padding-bottom: 5px;
+  }
+  .option-list > .option {
+    padding: 3px 0;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    --width: 100vw;
+
+    justify-content: flex-start;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--width);
+    height: 100vh;
+
+    transform: translate(0, 0);
+
+    padding: 25px;
+
+    background-color: rgb(var(--background-start-rgb));
+    outline: var(--border-width) solid rgb(var(--foreground-rgb));
+  }
+  .option-list > .option {
+    padding: 10px 0;
+    font-size: var(--font-size);
+  }
+
+  .dropdown-button-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+  }
+}
+
+@media only screen and (max-height: 580px) and (max-width: 950px) {
+  .container {
+    padding-top: 10px;
+  }
+  .container > P {
+    padding-bottom: 10px;
+  }
+  .container > .search-button-container {
+    padding-bottom: 10px;
+  }
+  .option-list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }
+  .option-list > .option {
+    display: none;
+  }
+  .option-column {
+    display: block;
+  }
+  .option-column > .option {
+    padding: 3px;
+  }
+}

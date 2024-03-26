@@ -3,6 +3,7 @@
   height: 40px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .container:before,
@@ -11,8 +12,12 @@
   position: absolute;
   width: 100%;
   height: var(--border-width);
-  background-color: #000;
-  transition: all 0.3s ease; /* Añadimos transición */
+  background-color: rgb(var(--background-start-rgb));
+  transition: all 0.3s ease;
+}
+.container.dark:before,
+.container.dark:after {
+  background-color: rgb(var(--foreground-rgb));
 }
 
 .container:before {

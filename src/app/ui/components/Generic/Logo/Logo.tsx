@@ -1,7 +1,7 @@
 /* Imports */
 
 // react & nextjs
-import { FC } from "react";
+import { FC, useContext } from "react";
 
 // components
 import Link from "next/link";
@@ -9,38 +9,38 @@ import Link from "next/link";
 // libs
 
 // utils
-import euphoriaScript from "../../../fonts/euphoria_script";
+import poppins from "@/app/ui/fonts/poppins";
+import useGetYScrollPos from "@/app/ui/hooks/Generic/useGetYScrollPos";
+import { HomePageContext } from "@/app/ui/contexts/HomeMain";
 
 // types & interfaces
 
 // css
 import styles from "@/app/ui/components/Generic/Logo/Logo.module.css";
 
-interface Props {
-  link?: boolean;
-}
+interface Props {}
 
-const Logo: FC<Props> = ({ link = true }) => {
-  let element: JSX.Element;
-  if (link) {
-    element = (
+const Logo: FC<Props> = ({}) => {
+  const scrollPos = useGetYScrollPos();
+  const checkPos = () => (scrollPos && scrollPos > 0 ? true : false);
+
+  const homePageState = useContext(HomePageContext);
+  const checkModal = (): boolean => {
+    return homePageState && homePageState[0].showMobileMenu ? true : false;
+  };
+
+  return (
+    <h1>
       <Link
         href="/"
-        className={`${euphoriaScript.className} ${styles.logo} ${styles.link}`.trim()}
+        className={`${poppins.className} ${styles.logo} ${styles.link} ${
+          checkPos() || checkModal() ? styles.dark : ""
+        }`.trim()}
       >
-        Arka
+        arka
       </Link>
-    );
-  } else {
-    element = (
-      <h1
-        className={`${euphoriaScript.className} ${styles.logo} ${styles.big}`.trim()}
-      >
-        Arka
-      </h1>
-    );
-  }
-  return element;
+    </h1>
+  );
 };
 
 export default Logo;

@@ -1,0 +1,21 @@
+.button {
+  display: block;
+  padding: 5px 5px;
+  border: var(--border-width) solid rgb(var(--foreground-rgb));
+  outline: none;
+
+  /* font-family: Poppins, sans-serif; */
+  font-weight: 100;
+  font-size: var(--font-size);
+  text-align: end;
+
+  background-color: rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb));
+  cursor: text;
+  transition: all 0.2s;
+}
+.button:hover {
+  color: rgb(var(--background-start-rgb));
+  background-color: rgb(var(--foreground-rgb));
+  border-color: transparent;
+}

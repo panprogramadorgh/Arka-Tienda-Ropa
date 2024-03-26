@@ -8,7 +8,7 @@ import { FC, useContext } from "react";
 // components
 import Link from "next/link";
 import Image from "next/image";
-import SearchButton from "@/app/ui/components/MainHeader/SearchButton/SearchButton";
+import SearchButton from "@/app/ui/components/Generic/SearchButton/SearchButton";
 import Logo from "@/app/ui/components/Generic/Logo/Logo";
 import DropdownButton from "@/app/ui/components/MainHeader/DropdownButton/DropdownButton";
 
@@ -29,16 +29,19 @@ interface Props {}
 const Header: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
   const scrollPos = useGetYScrollPos();
-  const checkScroll = () => scrollPos && scrollPos > 0;
+  const checkScroll = () => (scrollPos && scrollPos > 0 ? true : false);
 
+  if (homePageState === null) return;
   return (
     <header
       className={`${styles["header"]} ${checkScroll() ? styles.solid : ""} ${
-        homePageState && homePageState[0].showMobileMenu ? styles.solid : ""
+        homePageState[0].showMobileMenu ? styles.solid : ""
       }`.trim()}
     >
       <div className={styles["header-nav"]}>
-        <DropdownButton />
+        <DropdownButton
+          dark={checkScroll() || homePageState[0].showMobileMenu}
+        />
         <Logo />
       </div>
       <div className={styles["header-container"]}>

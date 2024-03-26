@@ -10,6 +10,7 @@ import Image from "next/image";
 
 // utils
 import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
+import imageSlidesImages from "@/utils/imageSlidesImages";
 
 // types & interfaces
 
@@ -23,46 +24,25 @@ const ImageSlides: FC<Props> = ({}) => {
   if (windowSize === null) return;
   return (
     <section className={styles["images-section"]}>
-      <article className={styles.page}>
-        <div className={styles["image-container"]}>
-          <Image
-            priority
-            src="/imgs/background/compressed/image2.jpg"
-            alt="model 1"
-            width={windowSize.width / 2}
-            height={windowSize.height}
-          />
-        </div>
-        <div className={styles["image-container"]}>
-          <Image
-            priority
-            src="/imgs/background/compressed/image5.jpg"
-            alt="model 2"
-            width={windowSize.width / 2}
-            height={windowSize.height}
-          />
-        </div>
-      </article>
-      <article className={styles.page}>
-        <div className={styles["image-container"]}>
-          <Image
-            priority
-            src="/imgs/background/compressed/image4.jpg"
-            alt="model 1"
-            width={windowSize.width / 2}
-            height={windowSize.height}
-          />
-        </div>
-        <div className={styles["image-container"]}>
-          <Image
-            priority
-            src="/imgs/background/compressed/image6.jpg"
-            alt="model 2"
-            width={windowSize.width / 2}
-            height={windowSize.height}
-          />
-        </div>
-      </article>
+      {imageSlidesImages.map((page, index) => {
+        return (
+          <article key={index} className={styles["page"]}>
+            {page.map((image) => {
+              return (
+                <div key={image.src} className={styles["image-container"]}>
+                  <Image
+                    priority
+                    src={image.src}
+                    alt={image.alt}
+                    width={windowSize.width / 2}
+                    height={windowSize.height}
+                  />
+                </div>
+              );
+            })}
+          </article>
+        );
+      })}
     </section>
   );
 };

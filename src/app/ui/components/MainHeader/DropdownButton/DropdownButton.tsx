@@ -17,9 +17,11 @@ import { HomePageContext } from "@/app/ui/contexts/HomeMain";
 // css
 import styles from "@/app/ui/components/MainHeader/DropdownButton/DropdownButton.module.css";
 
-interface Props {}
+interface Props {
+  dark?: boolean;
+}
 
-const DropdownButton: FC<Props> = ({}) => {
+const DropdownButton: FC<Props> = ({ dark }) => {
   const homePageState = useContext(HomePageContext);
   const handleClick: MouseEventHandler = useCallback(() => {
     if (homePageState != null) {
@@ -38,7 +40,7 @@ const DropdownButton: FC<Props> = ({}) => {
         homePageState != null && homePageState[0].showMobileMenu
           ? styles.close
           : ""
-      }`.trim()}
+      } ${dark ? styles.dark : ""}`.trim()}
     ></div>
   );
 };

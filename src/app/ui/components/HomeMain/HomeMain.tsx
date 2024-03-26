@@ -6,7 +6,7 @@
 import { FC, useContext } from "react";
 
 // components
-import MobileDropdown from "@/app/ui/components/HomeMain/MobileDropdown/MobileDropdown";
+import MobileDropdown from "@/app/ui/components/HomeMain/Dropdown/Dropdown";
 // import Presentation from "@/app/ui/components/HomeMain/Presentation/Presentation";
 import ImageSlides from "@/app/ui/components/HomeMain/ImageSlides/ImageSlides";
 
@@ -15,6 +15,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomeMain"; // home page context
+import useKeyboardShortcut from "@/app/ui/hooks/Generic/useKeyboardShortcut";
 
 // types & interfaces
 
@@ -25,6 +26,7 @@ interface Props {}
 
 const MainHomePage: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
+  useKeyboardShortcut();
 
   return (
     <main className={styles.main}>
