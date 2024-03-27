@@ -9,6 +9,7 @@ import Link from "next/link";
 // libs
 
 // utils
+import poppins from "@/app/ui/fonts/poppins";
 
 // types & interfaces
 
@@ -19,7 +20,10 @@ interface Props {}
 
 const SearchButton: FC<Props> = ({}) => {
   return (
-    <Link href="/search" className={`${styles.button}`.trim()}>
+    <Link
+      href="/search"
+      className={`${poppins.className} ${styles.button}`.trim()}
+    >
       Buscar (ctrl + b)
     </Link>
   );

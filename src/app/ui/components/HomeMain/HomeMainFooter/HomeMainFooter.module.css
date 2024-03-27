@@ -41,6 +41,9 @@
   display: flex;
   gap: 20px;
 }
+.info-container ul li {
+  text-align: center;
+}
 
 .credits-container {
   display: flex;
@@ -50,10 +53,13 @@
 }
 
 @media only screen and (max-width: 475px) {
-  .main > footer ul {
+  .footer ul {
     flex-flow: column nowrap;
     gap: 5px;
     text-align: center;
+  }
+  .main li {
+    font-size: var(--font-size-small);
   }
   .social-media > p {
     font-size: var(--font-size);
