@@ -19,8 +19,6 @@ import {
 
 // utils
 import navLinks from "@/utils/HomeMainContext/navLinks";
-import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
-import useGetYScrollPos from "@/app/ui/hooks/Generic/useGetYScrollPos";
 
 // types & interfaces
 import type { WindowSize } from "@/utils/types&interfaces/windowSize";
@@ -28,7 +26,7 @@ import type { ScrollPos } from "@/utils/types&interfaces/scrollPos";
 
 // css
 
-interface HomeMainContextDataI {
+interface HomePageContextDataI {
   dropdown: {
     open: boolean;
     navLinks: {
@@ -44,16 +42,16 @@ interface HomeMainContextDataI {
     yPos: ScrollPos["yPos"] | null;
   };
 }
-export type HomeMainContextStateI = [
-  HomeMainContextDataI,
-  Dispatch<SetStateAction<HomeMainContextDataI>>
+export type HomePageContextStateI = [
+  HomePageContextDataI,
+  Dispatch<SetStateAction<HomePageContextDataI>>
 ];
 
 interface Props {
   children: ReactNode;
 }
 
-export const HomePageContext = createContext<HomeMainContextStateI | null>(
+export const HomePageContext = createContext<HomePageContextStateI | null>(
   null
 );
 const HomePageContextProvider: FC<Props> = ({ children }) => {
@@ -120,7 +118,7 @@ const HomePageContextProvider: FC<Props> = ({ children }) => {
 
   // Objeto inicial para el estado homeMainState del contexto ---------
 
-  const init: HomeMainContextDataI = {
+  const init: HomePageContextDataI = {
     dropdown: {
       open: modalOpen,
       navLinks,
@@ -132,11 +130,11 @@ const HomePageContextProvider: FC<Props> = ({ children }) => {
     },
   };
 
-  const homePageState: HomeMainContextStateI =
-    useState<HomeMainContextDataI>(init);
+  const homePageState: HomePageContextStateI =
+    useState<HomePageContextDataI>(init);
 
   useEffect(() => {
-    const newHomeMainData: HomeMainContextDataI = {
+    const newHomeMainData: HomePageContextDataI = {
       dropdown: {
         open: modalOpen,
         navLinks,

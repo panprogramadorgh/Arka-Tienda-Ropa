@@ -10,9 +10,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 // utils
-import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
 import imageSlidesImages from "@/utils/ImageSlides/images";
-import useSwitchModalVisibility from "@/app/ui/hooks/HomeMainContext/useSwitchModalVisibility";
 
 // types & interfaces
 
@@ -27,7 +25,12 @@ const ImageSlides: FC<Props> = ({}) => {
 
   const handleClick: MouseEventHandler<HTMLElement> = () => {
     if (homePageState !== null) {
-      useSwitchModalVisibility(homePageState, false);
+      homePageState[1]((prevState) => {
+        return {
+          ...prevState,
+          dropdown: { open: false, navLinks: prevState.dropdown.navLinks },
+        };
+      });
     }
   };
 

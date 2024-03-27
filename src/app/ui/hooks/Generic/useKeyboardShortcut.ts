@@ -1,6 +1,5 @@
 import { useEffect, useContext } from "react";
 import { HomePageContext } from "@/app/ui/contexts/HomeMain";
-import useSwitchModalVisibility from "@/app/ui/hooks/HomeMainContext/useSwitchModalVisibility";
 
 export default function useKeyboardShortcut() {
   const homePageState = useContext(HomePageContext);
@@ -13,10 +12,15 @@ export default function useKeyboardShortcut() {
 
         if ((event as KeyboardEvent).key === "m") {
           event.preventDefault();
-          useSwitchModalVisibility(
-            homePageState,
-            !homePageState[0].dropdown.open
-          );
+          homePageState[1]((prevState) => {
+            return {
+              ...prevState,
+              dropdown: {
+                open: !prevState.dropdown.open,
+                navLinks: prevState.dropdown.navLinks,
+              },
+            };
+          });
         }
 
         if ((event as KeyboardEvent).key === "b") {

@@ -1,30 +1,12 @@
 :root {
-  --max-width: 80vw;
-
-  --border-radius: 12px;
   --border-width: 1px;
-  --border-rgb: 20, 20, 20;
-
-  --background-nav-hex: #fffa;
 
   --foreground-rgb: 5, 5, 5;
-  --foreground-hover-rgb: 120, 120, 120;
   --background-end-rgb: 230, 230, 232;
   --background-start-rgb: 255, 255, 255;
-  --background-card-rgb: 240, 240, 240;
-
-  --link-foreground-rgb: 19, 132, 237;
-
-  --box-shadow: #0002;
-  --box-shadow-heavy: #0006;
-
-  --scrollbar-thumb-rgb: 50, 50, 50;
-  --scrollbar-track-rgb: 0, 0, 0, 0;
 
   --font-size: 1rem;
-  --font-size-mobile: 0.93rem;
   --font-size-small: 0.83rem;
-
   --font-size-title: 1.5rem;
 }
 
@@ -63,5 +45,5 @@ a {
   transition: all 0.2s;
 }
 a:hover {
-  opacity: 0.7
+  opacity: 0.7;
 }

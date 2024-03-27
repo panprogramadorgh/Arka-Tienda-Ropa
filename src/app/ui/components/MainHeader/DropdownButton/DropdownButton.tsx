@@ -11,7 +11,6 @@ import { FC, useContext, useCallback, MouseEventHandler } from "react";
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomeMain";
-import useSwitchModalVisibility from "@/app/ui/hooks/HomeMainContext/useSwitchModalVisibility";
 
 // types & interfaces
 
@@ -27,7 +26,15 @@ const DropdownButton: FC<Props> = ({ dark }) => {
 
   const handleClick: MouseEventHandler = useCallback(() => {
     if (homePageState !== null) {
-      useSwitchModalVisibility(homePageState, !homePageState[0].dropdown.open);
+      homePageState[1]((prevState) => {
+        return {
+          ...prevState,
+          dropdown: {
+            open: !prevState.dropdown.open,
+            navLinks: prevState.dropdown.navLinks,
+          },
+        };
+      });
     }
   }, [homePageState]);
 

@@ -8,7 +8,7 @@ Para iniciar el proyeceto en primer lugar ejecute `npm i`, esto instalara las de
 
 El servidor estara activo en el puerto 3000 de su maquina. Puede acceder con `localhost:3000`
 
-### Tareas por hacer
+### Cambios respecto al anterior commit (0dca3b1)
 
 1. Solucionar advertencia relacionada con el componente Logo ✅
 2. Solucionar problema entre imagenes en dispositivos moviles ✅

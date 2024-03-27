@@ -10,7 +10,6 @@ import Link from "next/link";
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomeMain";
-import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
 
 // types & interfaces
 
