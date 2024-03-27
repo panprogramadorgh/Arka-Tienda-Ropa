@@ -6,6 +6,7 @@
   left: 7vw;
   width: var(--width);
   height: 600px;
+  min-height: 220px;
 
   padding: 30px;
   padding-bottom: 20px;
@@ -51,7 +52,9 @@
 }
 
 .dropdown-button-container {
-  display: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
 }
 
 @media only screen and (max-height: 820px) {
@@ -62,7 +65,7 @@
   }
   .container > p,
   .container .search-button-container {
-    padding-bottom: 5px;
+    padding-bottom: 15px;
   }
   .option-list > .option {
     padding: 3px 0;
@@ -92,17 +95,12 @@
     padding: 10px 0;
     font-size: var(--font-size);
   }
-
-  .dropdown-button-container {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-  }
 }
 
 @media only screen and (max-height: 580px) and (max-width: 950px) {
   .container {
     padding-top: 10px;
+    padding-bottom: 0;
   }
   .container > P {
     padding-bottom: 10px;

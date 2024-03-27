@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Product } from "@/utils/product";
+import type { Product } from "@/utils/types&interfaces/product";
 
 export default function useFetchProducts() {
   const [products, setProducts] = useState<Product[] | null>(null);

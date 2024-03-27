@@ -1,43 +1,63 @@
 /* Imports */
 
 // react & nextjs
-import { FC } from "react";
+import { FC, MouseEventHandler, useContext } from "react";
 
 // components
 import Image from "next/image";
 
 // libs
+import { motion } from "framer-motion";
 
 // utils
 import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
-import imageSlidesImages from "@/utils/imageSlidesImages";
+import imageSlidesImages from "@/utils/ImageSlides/images";
+import useSwitchModalVisibility from "@/app/ui/hooks/HomeMainContext/useSwitchModalVisibility";
 
 // types & interfaces
 
 // css
 import styles from "@/app/ui/components/HomeMain/ImageSlides/ImageSlides.module.css";
+import { HomePageContext } from "@/app/ui/contexts/HomeMain";
 
 interface Props {}
 
 const ImageSlides: FC<Props> = ({}) => {
-  const windowSize = useGetWindowSize();
-  if (windowSize === null) return;
+  const homePageState = useContext(HomePageContext);
+
+  const handleClick: MouseEventHandler<HTMLElement> = () => {
+    if (homePageState !== null) {
+      useSwitchModalVisibility(homePageState, false);
+    }
+  };
+
+  if (homePageState === null || homePageState[0].windowSize === null) return;
   return (
-    <section className={styles["images-section"]}>
+    <section className={styles["images-section"]} onClick={handleClick}>
       {imageSlidesImages.map((page, index) => {
         return (
           <article key={index} className={styles["page"]}>
             {page.map((image) => {
               return (
-                <div key={image.src} className={styles["image-container"]}>
+                <motion.div
+                  key={image.src}
+                  className={styles["image-container"]}
+                  initial={{ opacity: 0, zIndex: -100 }}
+                  animate={{ opacity: 1, zIndex: -100 }}
+                >
                   <Image
                     priority
                     src={image.src}
                     alt={image.alt}
-                    width={windowSize.width / 2}
-                    height={windowSize.height}
+                    width={homePageState[0].windowSize!.width / 2}
+                    height={homePageState[0].windowSize!.height}
+                    layout={
+                      homePageState[0].windowSize!.width > 1395
+                        ? "responsive"
+                        : undefined
+                    }
                   />
-                </div>
+                </motion.div>
               );
             })}
           </article>

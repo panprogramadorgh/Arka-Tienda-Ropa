@@ -1,7 +1,7 @@
 /* Imports */
 
 // react & nextjs
-import { FC, useContext, useEffect } from "react";
+import { FC, useContext } from "react";
 
 // components
 import Link from "next/link";
@@ -13,8 +13,7 @@ import { motion } from "framer-motion";
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomeMain"; // home page context
-import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
-import { dropIn, dropInMobile } from "@/utils/MobileDropdownAnimations";
+import { dropIn, dropInMobile } from "@/utils/Dropdown/DropdownAnimations";
 
 // types & interfaces
 
@@ -24,62 +23,90 @@ import styles from "@/app/ui/components/HomeMain/Dropdown/Dropdown.module.css";
 interface Props {}
 const MobileDropdown: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
-  const windowSize = useGetWindowSize();
+
+  const checkModal = () =>
+    homePageState && homePageState[0].dropdown.open ? true : false;
+
+  const checkWindowSize = (
+    direction: "width" | "height",
+    operation: (dimensions: number) => boolean
+  ): boolean => {
+    const dim =
+      homePageState &&
+      homePageState[0].windowSize &&
+      homePageState[0].windowSize[direction];
+    if (dim === null) return false;
+    return operation(dim);
+  };
 
   // Mientras que el tamaño de la ventana no se sepa entonces no se renderiza el modal
-  if (windowSize === null || homePageState === null) return;
+  if (homePageState === null || homePageState[0].windowSize === null) return;
   return (
     <motion.div
       className={styles.container}
       initial="hidden"
       animate="visible"
       exit="exit"
-      variants={windowSize.width > 950 ? dropIn : dropInMobile}
+      variants={
+        checkWindowSize("width", (dimension) => dimension > 950)
+          ? dropIn
+          : dropInMobile
+      }
     >
-      <div className={styles["dropdown-button-container"]}>
-        <DropdownButton dark={homePageState[0].showMobileMenu} />
-      </div>
+      {checkWindowSize("width", (dimension) => dimension <= 950) ? (
+        <div className={styles["dropdown-button-container"]}>
+          <DropdownButton dark={checkModal()} />
+        </div>
+      ) : null}
+
       <p>Nuestro catalogo</p>
+
       <div className={styles["search-button-container"]}>
         <SearchButton />
       </div>
+
+      {/* Cuando la pantalla sea menor o igual a 580, se visualizan los link en dos columnas diferentes */}
       <ul className={styles["option-list"]}>
-        {homePageState &&
-          homePageState[0].navLinks.map(({ title, path }) => {
+        {checkWindowSize("height", (dimension) => dimension > 580) ? (
+          homePageState[0].dropdown.navLinks.map(({ title, path }) => {
             return (
               <li className={styles.option} key={path}>
                 <Link href={path}>{title}</Link>
               </li>
             );
-          })}
-        {/* Los option column son solamente visibles si el alto de la pantalla es menor o igual a 580 */}
-        <div className={styles["option-column"]}>
-          {homePageState &&
-            homePageState[0].navLinks
-              .slice(0, Math.floor(homePageState[0].navLinks.length / 2) + 1)
-              .map(({ title, path }) => {
-                return (
-                  <li className={styles.option} key={path}>
-                    <Link href={path}>{title}</Link>
-                  </li>
-                );
-              })}
-        </div>
-        <div className={styles["option-column"]}>
-          {homePageState &&
-            homePageState[0].navLinks
-              .slice(
-                Math.floor(homePageState[0].navLinks.length / 2) + 1,
-                homePageState[0].navLinks.length
-              )
-              .map(({ title, path }) => {
-                return (
-                  <li className={styles.option} key={path}>
-                    <Link href={path}>{title}</Link>
-                  </li>
-                );
-              })}
-        </div>
+          })
+        ) : (
+          <>
+            <div className={styles["option-column"]}>
+              {homePageState[0].dropdown.navLinks
+                .slice(
+                  0,
+                  Math.ceil(homePageState[0].dropdown.navLinks.length / 2)
+                )
+                .map(({ title, path }) => {
+                  return (
+                    <li className={styles.option} key={path}>
+                      <Link href={path}>{title}</Link>
+                    </li>
+                  );
+                })}
+            </div>
+            <div className={styles["option-column"]}>
+              {homePageState[0].dropdown.navLinks
+                .slice(
+                  Math.ceil(homePageState[0].dropdown.navLinks.length / 2),
+                  homePageState[0].dropdown.navLinks.length
+                )
+                .map(({ title, path }) => {
+                  return (
+                    <li className={styles.option} key={path}>
+                      <Link href={path}>{title}</Link>
+                    </li>
+                  );
+                })}
+            </div>
+          </>
+        )}
         {/* ------------------------- */}
       </ul>
     </motion.div>

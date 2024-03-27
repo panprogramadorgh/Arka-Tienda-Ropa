@@ -9,32 +9,40 @@ import Link from "next/link";
 // libs
 
 // utils
-import poppins from "@/app/ui/fonts/poppins";
-import useGetYScrollPos from "@/app/ui/hooks/Generic/useGetYScrollPos";
 import { HomePageContext } from "@/app/ui/contexts/HomeMain";
+import useGetWindowSize from "@/app/ui/hooks/Generic/useGetWindowSize";
 
 // types & interfaces
 
 // css
 import styles from "@/app/ui/components/Generic/Logo/Logo.module.css";
 
-interface Props {}
+interface Props {
+  scrollPos: number;
+}
 
-const Logo: FC<Props> = ({}) => {
-  const scrollPos = useGetYScrollPos();
-  const checkPos = () => (scrollPos && scrollPos > 0 ? true : false);
-
+const Logo: FC<Props> = ({ scrollPos }) => {
   const homePageState = useContext(HomePageContext);
-  const checkModal = (): boolean => {
-    return homePageState && homePageState[0].showMobileMenu ? true : false;
+
+  const checkModal = () =>
+    homePageState && homePageState[0].dropdown.open ? true : false;
+
+  const checkWindowWidth = () => {
+    return homePageState &&
+      homePageState[0].windowSize &&
+      homePageState[0].windowSize.width <= 420
+      ? true
+      : false;
   };
 
+  // FIXME: Comprobar a quitar `if`
+  if (homePageState === null || homePageState[0].windowSize === null) return;
   return (
     <h1>
       <Link
         href="/"
-        className={`${poppins.className} ${styles.logo} ${styles.link} ${
-          checkPos() || checkModal() ? styles.dark : ""
+        className={`${styles.logo} ${checkWindowWidth() ? styles.small : ""} ${
+          scrollPos > 0 || checkModal() ? styles.dark : ""
         }`.trim()}
       >
         arka

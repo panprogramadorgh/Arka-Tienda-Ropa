@@ -9,8 +9,8 @@
 
   --foreground-rgb: 5, 5, 5;
   --foreground-hover-rgb: 120, 120, 120;
-  --background-start-rgb: 230, 230, 232;
-  --background-end-rgb: 255, 255, 255;
+  --background-end-rgb: 230, 230, 232;
+  --background-start-rgb: 255, 255, 255;
   --background-card-rgb: 240, 240, 240;
 
   --link-foreground-rgb: 19, 132, 237;
@@ -21,9 +21,9 @@
   --scrollbar-thumb-rgb: 50, 50, 50;
   --scrollbar-track-rgb: 0, 0, 0, 0;
 
-  --font-size: 1.1rem;
-  --font-size-mobile: 0.97rem;
-  --font-size-small: 1rem;
+  --font-size: 1rem;
+  --font-size-mobile: 0.93rem;
+  --font-size-small: 0.83rem;
 
   --font-size-title: 1.5rem;
 }
@@ -60,9 +60,8 @@ body {
 a {
   color: rgb(var(--foreground-rgb));
   text-decoration: none;
-  position: relative;
-  transition: color 0.2s;
+  transition: all 0.2s;
 }
 a:hover {
-  color: rgb(var(--foreground-hover-rgb));
+  opacity: 0.7
 }

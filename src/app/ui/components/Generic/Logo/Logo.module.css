@@ -10,3 +10,6 @@
 .logo.dark {
   color: rgb(var(--foreground-rgb));
 }
+.logo.small {
+  font-size: 2.35rem;
+}

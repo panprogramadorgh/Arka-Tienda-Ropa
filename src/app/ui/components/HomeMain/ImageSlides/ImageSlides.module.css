@@ -1,12 +1,15 @@
 .page {
   display: flex;
   justify-content: flex-start;
+  user-select: none;
 }
 .image-container {
   height: 100vh;
 }
 .image-container img {
   object-fit: cover;
+  width: 50vw;
+  height: 100vh;
 }
 
 @media only screen and (max-width: 950px) {

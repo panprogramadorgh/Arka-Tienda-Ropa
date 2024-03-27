@@ -7,11 +7,11 @@ import { FC, useContext } from "react";
 
 // components
 import MobileDropdown from "@/app/ui/components/HomeMain/Dropdown/Dropdown";
-// import Presentation from "@/app/ui/components/HomeMain/Presentation/Presentation";
 import ImageSlides from "@/app/ui/components/HomeMain/ImageSlides/ImageSlides";
+import HomeMainFooter from "@/app/ui/components/HomeMain/HomeMainFooter/HomeMainFooter";
 
 // libs
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 // utils
 import { HomePageContext } from "@/app/ui/contexts/HomeMain"; // home page context
@@ -26,16 +26,15 @@ interface Props {}
 
 const MainHomePage: FC<Props> = ({}) => {
   const homePageState = useContext(HomePageContext);
+  const checkModal = () =>
+    homePageState && homePageState[0].dropdown.open ? true : false;
   useKeyboardShortcut();
 
   return (
     <main className={styles.main}>
-      <AnimatePresence>
-        {homePageState != null && homePageState[0].showMobileMenu && (
-          <MobileDropdown />
-        )}
-      </AnimatePresence>
+      <AnimatePresence>{checkModal() && <MobileDropdown />}</AnimatePresence>
       <ImageSlides />
+      <HomeMainFooter />
     </main>
   );
 };

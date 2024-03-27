@@ -4,9 +4,9 @@
   border: var(--border-width) solid rgb(var(--foreground-rgb));
   outline: none;
 
-  /* font-family: Poppins, sans-serif; */
+  font-family: Poppins, sans-serif;
   font-weight: 100;
-  font-size: var(--font-size);
+  font-size: var(--font-size-small);
   text-align: end;
 
   background-color: rgb(var(--background-start-rgb));
@@ -15,7 +15,8 @@
   transition: all 0.2s;
 }
 .button:hover {
-  color: rgb(var(--background-start-rgb));
+  color: rgb(var(--background-end-rgb));
   background-color: rgb(var(--foreground-rgb));
   border-color: transparent;
+  opacity: 1;
 }

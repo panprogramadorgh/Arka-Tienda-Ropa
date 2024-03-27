@@ -1,5 +1,6 @@
 import { useEffect, useContext } from "react";
 import { HomePageContext } from "@/app/ui/contexts/HomeMain";
+import useSwitchModalVisibility from "@/app/ui/hooks/HomeMainContext/useSwitchModalVisibility";
 
 export default function useKeyboardShortcut() {
   const homePageState = useContext(HomePageContext);
@@ -7,17 +8,15 @@ export default function useKeyboardShortcut() {
   useEffect(() => {
     const checkWindow = () => typeof window !== undefined;
     const handleKeydown: EventListener = (event) => {
-      if ((event as KeyboardEvent).ctrlKey && homePageState) {
+      if ((event as KeyboardEvent).ctrlKey && homePageState !== null) {
         // Combinacion de teclas con CTRL
 
         if ((event as KeyboardEvent).key === "m") {
           event.preventDefault();
-          const [_, setHomePageState] = homePageState;
-          // Invierte la visibilidad del menu
-          setHomePageState({
-            navLinks: homePageState[0].navLinks,
-            showMobileMenu: !homePageState[0].showMobileMenu,
-          });
+          useSwitchModalVisibility(
+            homePageState,
+            !homePageState[0].dropdown.open
+          );
         }
 
         if ((event as KeyboardEvent).key === "b") {
