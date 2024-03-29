@@ -1,0 +1,38 @@
+.fallback {
+  flex-grow: 1;
+  flex-basis: 0;
+  min-height: 100vh;
+  position: relative;
+  background-color: rgb(var(--background-end-rgb));
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  border: var(--border-width) solid rgb(var(--foreground-rgb));
+  width: 35px;
+  height: 35px;
+  border-radius: var(--border-radius);
+  animation: rotate 0.8s linear infinite;
+}
+
+@media only screen and (max-width: 950px) {
+  .fallback:last-child {
+    display: none;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    border-radius: 0;
+  }
+}

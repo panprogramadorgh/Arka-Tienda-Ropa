@@ -32,23 +32,9 @@
 .option-list {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-between;
   align-items: flex-start;
   list-style: none;
-}
-.option {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 10px 0;
-}
-
-.option a {
-  display: block;
-}
-
-.option-column {
-  display: none;
 }
 
 .dropdown-button-container {
@@ -59,16 +45,19 @@
 
 @media only screen and (max-height: 820px) {
   .container {
-    height: 450px;
     top: 135px;
+    height: auto;
     font-size: var(--font-size-small);
   }
   .container > p,
   .container .search-button-container {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
   }
-  .option-list > .option {
-    padding: 3px 0;
+}
+
+@media only screen and (max-height: 665px) {
+  .option-list {
+    flex-flow: row nowrap;
   }
 }
 
@@ -91,35 +80,17 @@
     background-color: rgb(var(--background-start-rgb));
     outline: var(--border-width) solid rgb(var(--foreground-rgb));
   }
-  .option-list > .option {
-    padding: 10px 0;
-    font-size: var(--font-size);
-  }
 }
 
-@media only screen and (max-height: 580px) and (max-width: 950px) {
+@media only screen and (max-height: 665px) and (max-width: 950px) {
   .container {
     padding-top: 10px;
-    padding-bottom: 0;
+    padding-bottom: 10px;
   }
   .container > P {
     padding-bottom: 10px;
   }
   .container > .search-button-container {
-    padding-bottom: 10px;
-  }
-  .option-list {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-  }
-  .option-list > .option {
-    display: none;
-  }
-  .option-column {
-    display: block;
-  }
-  .option-column > .option {
-    padding: 3px;
+    padding-bottom: 15px;
   }
 }

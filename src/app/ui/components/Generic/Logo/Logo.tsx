@@ -34,7 +34,6 @@ const Logo: FC<Props> = ({ scrollPos }) => {
       : false;
   };
 
-  // FIXME: Comprobar a quitar `if`
   if (homePageState === null || homePageState[0].windowSize === null) return;
   return (
     <h1>

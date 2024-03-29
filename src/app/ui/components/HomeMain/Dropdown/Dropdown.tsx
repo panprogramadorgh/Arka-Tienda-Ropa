@@ -7,6 +7,8 @@ import { FC, useContext } from "react";
 import Link from "next/link";
 import SearchButton from "@/app/ui/components/Generic/SearchButton/SearchButton";
 import DropdownButton from "@/app/ui/components/MainHeader/DropdownButton/DropdownButton";
+import Columns from "@/app/ui/components/HomeMain/Dropdown/Columns/Columns";
+import Rows from "@/app/ui/components/HomeMain/Dropdown/Rows/Rows";
 
 // libs
 import { motion } from "framer-motion";
@@ -65,49 +67,12 @@ const MobileDropdown: FC<Props> = ({}) => {
         <SearchButton />
       </div>
 
-      {/* Cuando la pantalla sea menor o igual a 580, se visualizan los link en dos columnas diferentes */}
       <ul className={styles["option-list"]}>
-        {checkWindowSize("height", (dimension) => dimension > 580) ? (
-          homePageState[0].dropdown.navLinks.map(({ title, path }) => {
-            return (
-              <li className={styles.option} key={path}>
-                <Link href={path}>{title}</Link>
-              </li>
-            );
-          })
+        {checkWindowSize("height", (dimension) => dimension > 665) ? (
+          <Rows />
         ) : (
-          <>
-            <div className={styles["option-column"]}>
-              {homePageState[0].dropdown.navLinks
-                .slice(
-                  0,
-                  Math.ceil(homePageState[0].dropdown.navLinks.length / 2)
-                )
-                .map(({ title, path }) => {
-                  return (
-                    <li className={styles.option} key={path}>
-                      <Link href={path}>{title}</Link>
-                    </li>
-                  );
-                })}
-            </div>
-            <div className={styles["option-column"]}>
-              {homePageState[0].dropdown.navLinks
-                .slice(
-                  Math.ceil(homePageState[0].dropdown.navLinks.length / 2),
-                  homePageState[0].dropdown.navLinks.length
-                )
-                .map(({ title, path }) => {
-                  return (
-                    <li className={styles.option} key={path}>
-                      <Link href={path}>{title}</Link>
-                    </li>
-                  );
-                })}
-            </div>
-          </>
+          <Columns />
         )}
-        {/* ------------------------- */}
       </ul>
     </motion.div>
   );

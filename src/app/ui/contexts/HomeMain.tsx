@@ -55,9 +55,6 @@ export const HomePageContext = createContext<HomePageContextStateI | null>(
   null
 );
 const HomePageContextProvider: FC<Props> = ({ children }) => {
-  // Estado que determina si el modal esta o no abierto
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
-
   // Estado que almacena el tamaño de la ventana a tiempo real -------
   const [winSize, setWinSize] = useState<WindowSize | null>(null);
   useEffect(() => {
@@ -86,14 +83,21 @@ const HomePageContextProvider: FC<Props> = ({ children }) => {
   // Estado que almacena en tiempo real la posicion Y del scroll -------
 
   const [scrollYpos, setScrollYpos] = useState<number>(0);
-
   useEffect(() => {
-    const checkWindow = (): boolean => typeof window !== "undefined";
+    const checkWindow = (): boolean => typeof window !== undefined;
     const checkContext = (): boolean => homePageState !== null;
 
     const closeModal = () => {
-      if (homePageState !== null) {
-        setModalOpen(false);
+      if (checkContext()) {
+        homePageState[1]((prevState) => {
+          return {
+            ...prevState,
+            dropdown: {
+              open: false,
+              navLinks: prevState.dropdown.navLinks,
+            },
+          };
+        });
       }
     };
     const updateScrollPos = () => {
@@ -108,11 +112,11 @@ const HomePageContextProvider: FC<Props> = ({ children }) => {
     };
 
     if (checkWindow() && checkContext()) {
+      updateScrollPos(); // Actualiza el estado por primera vez
       window.addEventListener("scroll", handleScroll);
     }
     return () => {
-      if (checkWindow() && checkContext())
-        window.removeEventListener("scroll", handleScroll);
+      if (checkWindow()) window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -120,7 +124,7 @@ const HomePageContextProvider: FC<Props> = ({ children }) => {
 
   const init: HomePageContextDataI = {
     dropdown: {
-      open: modalOpen,
+      open: false,
       navLinks,
     },
     windowSize: winSize,
@@ -134,19 +138,17 @@ const HomePageContextProvider: FC<Props> = ({ children }) => {
     useState<HomePageContextDataI>(init);
 
   useEffect(() => {
-    const newHomeMainData: HomePageContextDataI = {
-      dropdown: {
-        open: modalOpen,
-        navLinks,
-      },
-      windowSize: winSize,
-      scrollPos: {
-        yPos: scrollYpos,
-        xPos: 0,
-      },
-    };
-    homePageState[1](newHomeMainData);
-  }, [scrollYpos, winSize, modalOpen]);
+    homePageState[1]((prevState) => {
+      return {
+        ...prevState,
+        windowSize: winSize,
+        scrollPos: {
+          yPos: scrollYpos,
+          xPos: prevState.scrollPos.xPos,
+        },
+      };
+    });
+  }, [scrollYpos, winSize]);
 
   return (
     <HomePageContext.Provider value={homePageState}>

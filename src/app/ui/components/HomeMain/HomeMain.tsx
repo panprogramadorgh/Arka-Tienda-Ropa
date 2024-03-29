@@ -3,7 +3,7 @@
 /* Imports */
 
 // react & nextjs
-import { FC, useContext } from "react";
+import React, { FC, useContext } from "react";
 
 // components
 import MobileDropdown from "@/app/ui/components/HomeMain/Dropdown/Dropdown";

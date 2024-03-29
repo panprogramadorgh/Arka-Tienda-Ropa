@@ -42,7 +42,7 @@ body {
 a {
   color: rgb(var(--foreground-rgb));
   text-decoration: none;
-  transition: all 0.2s;
+  transition: opacity 0.2s;
 }
 a:hover {
   opacity: 0.7;

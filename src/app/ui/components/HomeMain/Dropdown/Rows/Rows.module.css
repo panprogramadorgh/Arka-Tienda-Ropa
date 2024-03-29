@@ -1,0 +1,23 @@
+.option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+.option a {
+  display: block;
+}
+
+@media only screen and (max-height: 820px) {
+  .option-list > .option {
+    padding: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .option-list > .option {
+    padding: 10px 0;
+    font-size: var(--font-size);
+  }
+}

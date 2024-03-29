@@ -1,0 +1,6 @@
+.option-column {
+  flex-grow: 1;
+}
+.option-column .option {
+  padding: 5px 0;
+}
